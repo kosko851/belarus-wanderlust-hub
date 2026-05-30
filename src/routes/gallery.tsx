@@ -10,27 +10,31 @@ import bison from "@/assets/gallery-bison.jpg";
 import folk from "@/assets/gallery-folk.jpg";
 import sunset from "@/assets/gallery-sunset.jpg";
 
+const LIDA_IMG =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lida_Castle_2011.jpg/1280px-Lida_Castle_2011.jpg";
+
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Explore Belarus" },
-      { name: "description", content: "A visual journey through Belarus: castles, ancient forests, lakes and culture." },
+      { title: "Галерея — Открой Беларусь" },
+      { name: "description", content: "Визуальное путешествие по Беларуси: замки, леса, озёра и культура." },
     ],
   }),
   component: GalleryPage,
 });
 
 const images = [
-  { src: mir, alt: "Mir Castle" },
-  { src: church, alt: "Wooden church in wheat field" },
-  { src: forest, alt: "Belovezhskaya forest" },
-  { src: lakes, alt: "Braslav Lakes from above" },
-  { src: bison, alt: "European bison" },
-  { src: nesvizh, alt: "Nesvizh Palace" },
-  { src: folk, alt: "Traditional folk embroidery" },
-  { src: sunset, alt: "Sunset over the lake" },
-  { src: minsk, alt: "Minsk skyline" },
-  { src: brest, alt: "Brest Fortress" },
+  { src: LIDA_IMG, alt: "Лидский замок" },
+  { src: mir, alt: "Мирский замок" },
+  { src: church, alt: "Деревянная церковь в поле" },
+  { src: forest, alt: "Беловежская пуща" },
+  { src: lakes, alt: "Браславские озёра с высоты" },
+  { src: bison, alt: "Зубр" },
+  { src: nesvizh, alt: "Несвижский дворец" },
+  { src: folk, alt: "Традиционная вышивка" },
+  { src: sunset, alt: "Закат над озером" },
+  { src: minsk, alt: "Панорама Минска" },
+  { src: brest, alt: "Брестская крепость" },
 ];
 
 function GalleryPage() {
@@ -38,8 +42,8 @@ function GalleryPage() {
     <>
       <section className="pt-40 pb-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 text-center">
-          <span className="text-xs uppercase tracking-[0.4em] text-gold">Gallery</span>
-          <h1 className="mt-4 font-display text-5xl md:text-6xl">Belarus in light</h1>
+          <span className="text-xs uppercase tracking-[0.4em] text-gold">Галерея</span>
+          <h1 className="mt-4 font-display text-5xl md:text-6xl">Беларусь в свете</h1>
         </div>
       </section>
 
@@ -47,10 +51,7 @@ function GalleryPage() {
         <div className="container mx-auto px-6">
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
             {images.map((img, i) => (
-              <figure
-                key={i}
-                className="mb-5 break-inside-avoid overflow-hidden rounded-2xl group shadow-elegant"
-              >
+              <figure key={i} className="mb-5 break-inside-avoid overflow-hidden rounded-2xl group shadow-elegant">
                 <img
                   src={img.src}
                   alt={img.alt}

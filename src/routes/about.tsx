@@ -5,18 +5,18 @@ import { Leaf, Heart, Shield, Sparkles } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Explore Belarus" },
-      { name: "description", content: "Local experts crafting unforgettable Belarus tours since 2013." },
+      { title: "О нас — Открой Беларусь" },
+      { name: "description", content: "Местные эксперты, создающие незабываемые туры по Беларуси с 2013 года." },
     ],
   }),
   component: AboutPage,
 });
 
 const values = [
-  { icon: Leaf, t: "Sustainable", d: "Small groups, local suppliers, low-impact routes." },
-  { icon: Heart, t: "Personal", d: "Every itinerary is tailored to who you are." },
-  { icon: Shield, t: "Trusted", d: "A decade of safe, seamless journeys across Belarus." },
-  { icon: Sparkles, t: "Curated", d: "Hand-picked moments you won't find in guidebooks." },
+  { icon: Leaf, t: "Экологичность", d: "Малые группы, местные поставщики, маршруты с минимальным воздействием." },
+  { icon: Heart, t: "Индивидуальный подход", d: "Каждый маршрут адаптируется под вас." },
+  { icon: Shield, t: "Надёжность", d: "Десять лет безопасных и комфортных путешествий по Беларуси." },
+  { icon: Sparkles, t: "Авторский отбор", d: "Моменты, которых не найти в путеводителях." },
 ];
 
 function AboutPage() {
@@ -24,25 +24,28 @@ function AboutPage() {
     <>
       <section className="pt-40 pb-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 text-center">
-          <span className="text-xs uppercase tracking-[0.4em] text-gold">About Us</span>
-          <h1 className="mt-4 font-display text-5xl md:text-6xl">Local experts, lifelong travelers</h1>
+          <span className="text-xs uppercase tracking-[0.4em] text-gold">О нас</span>
+          <h1 className="mt-4 font-display text-5xl md:text-6xl">Местные эксперты и путешественники</h1>
         </div>
       </section>
 
       <section className="py-20">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-xs uppercase tracking-[0.3em] text-gold">Our Story</span>
-            <h2 className="mt-4 font-display text-4xl">A love letter to a quiet country</h2>
+            <span className="text-xs uppercase tracking-[0.3em] text-gold">Наша история</span>
+            <h2 className="mt-4 font-display text-4xl">Любовное письмо тихой стране</h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Explore Belarus was founded in 2013 by a small team of Minsk-born guides who believed their homeland deserved more attention. What began as weekend trips for friends has grown into a boutique tour company welcoming travelers from over 40 countries.
+              «Открой Беларусь» основана в 2013 году небольшой командой минских гидов, которые верили,
+              что их родина заслуживает большего внимания. То, что начиналось как поездки для друзей,
+              выросло в бутик-туроператора, принимающего путешественников из более чем 40 стран.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              We don't do crowds. We do mornings in the forest, dinners in family homes, and unhurried afternoons inside places that mattered for centuries.
+              Мы не делаем массовый туризм. Мы делаем утренние прогулки в лесу, ужины в семейных
+              домах и неспешные дни в местах, которые помнили века.
             </p>
           </div>
           <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-elegant">
-            <img src={minsk} alt="Minsk at dusk" loading="lazy" className="w-full h-full object-cover" />
+            <img src={minsk} alt="Минск на закате" loading="lazy" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -50,8 +53,8 @@ function AboutPage() {
       <section className="py-20 bg-secondary/40">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs uppercase tracking-[0.3em] text-gold">Why Choose Us</span>
-            <h2 className="mt-4 font-display text-4xl">Four promises we live by</h2>
+            <span className="text-xs uppercase tracking-[0.3em] text-gold">Почему мы</span>
+            <h2 className="mt-4 font-display text-4xl">Четыре обещания, которым мы следуем</h2>
           </div>
           <div className="mt-14 grid md:grid-cols-4 gap-6">
             {values.map(({ icon: Icon, t, d }) => (

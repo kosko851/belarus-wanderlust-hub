@@ -10,7 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as PromotionsRouteImport } from './routes/promotions'
+import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as LidaCastleRouteImport } from './routes/lida-castle'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -21,9 +26,34 @@ const ToursRoute = ToursRouteImport.update({
   path: '/tours',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PromotionsRoute = PromotionsRouteImport.update({
+  id: '/promotions',
+  path: '/promotions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlannerRoute = PlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LidaCastleRoute = LidaCastleRouteImport.update({
+  id: '/lida-castle',
+  path: '/lida-castle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DestinationsRoute = DestinationsRouteImport.update({
@@ -52,7 +82,12 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/lida-castle': typeof LidaCastleRoute
+  '/map': typeof MapRoute
+  '/planner': typeof PlannerRoute
+  '/promotions': typeof PromotionsRoute
   '/tours': typeof ToursRoute
 }
 export interface FileRoutesByTo {
@@ -60,7 +95,12 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/lida-castle': typeof LidaCastleRoute
+  '/map': typeof MapRoute
+  '/planner': typeof PlannerRoute
+  '/promotions': typeof PromotionsRoute
   '/tours': typeof ToursRoute
 }
 export interface FileRoutesById {
@@ -69,7 +109,12 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/lida-castle': typeof LidaCastleRoute
+  '/map': typeof MapRoute
+  '/planner': typeof PlannerRoute
+  '/promotions': typeof PromotionsRoute
   '/tours': typeof ToursRoute
 }
 export interface FileRouteTypes {
@@ -79,17 +124,38 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/destinations'
+    | '/faq'
     | '/gallery'
+    | '/lida-castle'
+    | '/map'
+    | '/planner'
+    | '/promotions'
     | '/tours'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/destinations' | '/gallery' | '/tours'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/destinations'
+    | '/faq'
+    | '/gallery'
+    | '/lida-castle'
+    | '/map'
+    | '/planner'
+    | '/promotions'
+    | '/tours'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/destinations'
+    | '/faq'
     | '/gallery'
+    | '/lida-castle'
+    | '/map'
+    | '/planner'
+    | '/promotions'
     | '/tours'
   fileRoutesById: FileRoutesById
 }
@@ -98,7 +164,12 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
+  LidaCastleRoute: typeof LidaCastleRoute
+  MapRoute: typeof MapRoute
+  PlannerRoute: typeof PlannerRoute
+  PromotionsRoute: typeof PromotionsRoute
   ToursRoute: typeof ToursRoute
 }
 
@@ -111,11 +182,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToursRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/promotions': {
+      id: '/promotions'
+      path: '/promotions'
+      fullPath: '/promotions'
+      preLoaderRoute: typeof PromotionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planner': {
+      id: '/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lida-castle': {
+      id: '/lida-castle'
+      path: '/lida-castle'
+      fullPath: '/lida-castle'
+      preLoaderRoute: typeof LidaCastleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/destinations': {
@@ -154,9 +260,24 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
+  LidaCastleRoute: LidaCastleRoute,
+  MapRoute: MapRoute,
+  PlannerRoute: PlannerRoute,
+  PromotionsRoute: PromotionsRoute,
   ToursRoute: ToursRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
